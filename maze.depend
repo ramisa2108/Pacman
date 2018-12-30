@@ -1,0 +1,423 @@
+# depslib dependency file v1.0
+1531986397 source:f:\l1-t1\cse 101\pacman\imain.cpp
+	"mazedraw.h"
+	"variables.h"
+
+1531393565 f:\l1-t1\cse 101\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1462108168 f:\l1-t1\cse 101\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl/glaux.h>
+
+1531986085 f:\l1-t1\cse 101\pacman\variables.h
+
+1531371433 f:\l1-t1\cse 101\pacman\mazedrawnew.h.h
+	<stdio.h>
+	"iGraphics.h"
+
+1532198272 source:c:\users\mashiat\desktop\pacman\imain.cpp
+	"mazedraw.h"
+	"variables.h"
+
+1532195869 c:\users\mashiat\desktop\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810122 c:\users\mashiat\desktop\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1531986086 c:\users\mashiat\desktop\pacman\variables.h
+
+1532203369 source:c:\users\mashiat\desktop\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+
+1532203369 source:c:\users\asus\desktop\pacman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+
+1532195869 c:\users\asus\desktop\pacman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810122 c:\users\asus\desktop\pacman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1531986086 c:\users\asus\desktop\pacman\pacman\variables.h
+
+1532452723 source:c:\users\asus\desktop\peraman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+
+1532195869 c:\users\asus\desktop\peraman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810122 c:\users\asus\desktop\peraman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1532451265 c:\users\asus\desktop\peraman\pacman\variables.h
+
+1532198272 source:c:\users\asus\desktop\peraman\pacman\imain.cpp
+	"mazedraw.h"
+	"variables.h"
+
+1532454876 source:c:\users\mashiat\desktop\peraman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+
+1532455058 c:\users\mashiat\desktop\peraman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 c:\users\mashiat\desktop\peraman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1532451266 c:\users\mashiat\desktop\peraman\pacman\variables.h
+
+1532465607 source:c:\users\asus\desktop\peraman\peraman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"screens.h"
+
+1532463557 c:\users\asus\desktop\peraman\peraman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 c:\users\asus\desktop\peraman\peraman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1532465616 c:\users\asus\desktop\peraman\peraman\pacman\variables.h
+
+1532464436 c:\users\asus\desktop\peraman\peraman\pacman\highscores.h
+
+1532461890 c:\users\asus\desktop\peraman\peraman\pacman\check_functions.h
+
+1532462268 c:\users\asus\desktop\peraman\peraman\pacman\movements.h
+
+1532465383 c:\users\asus\desktop\peraman\peraman\pacman\screens.h
+
+1533061098 source:c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"screens.h"
+	"savegame.h"
+	"resume_game.h"
+	<windows.h>
+
+1532463558 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1533041196 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\variables.h
+
+1533057842 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\highscores.h
+
+1532461892 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\check_functions.h
+
+1533033718 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\movements.h
+
+1533061552 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\screens.h
+
+1532697960 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\savegame.h
+
+1532698150 c:\users\mashiat\desktop\peraman_almost_final\peraman\pacman\resume_game.h
+	<stdlib.h>
+	<stdio.h>
+
+1533041688 source:c:\users\asus\desktop\peraman_almost_final\peraman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"screens.h"
+	"savegame.h"
+	"resume_game.h"
+
+1532463558 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1533041195 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\variables.h
+
+1532464438 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\highscores.h
+
+1532461892 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\check_functions.h
+
+1533033717 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\movements.h
+
+1533041212 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\screens.h
+
+1532697959 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\savegame.h
+
+1532698149 c:\users\asus\desktop\peraman_almost_final\peraman\pacman\resume_game.h
+	<stdlib.h>
+	<stdio.h>
+
+1533061098 source:e:\peraman_almost_final\peraman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"screens.h"
+	"savegame.h"
+	"resume_game.h"
+	<windows.h>
+
+1532463558 e:\peraman_almost_final\peraman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 e:\peraman_almost_final\peraman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1533063159 e:\peraman_almost_final\peraman\pacman\variables.h
+
+1533063045 e:\peraman_almost_final\peraman\pacman\highscores.h
+
+1532461892 e:\peraman_almost_final\peraman\pacman\check_functions.h
+
+1533033718 e:\peraman_almost_final\peraman\pacman\movements.h
+
+1533061552 e:\peraman_almost_final\peraman\pacman\screens.h
+
+1533063208 e:\peraman_almost_final\peraman\pacman\savegame.h
+	<bits/stdc++.h>
+
+1532698150 e:\peraman_almost_final\peraman\pacman\resume_game.h
+	<stdlib.h>
+	<stdio.h>
+
+1533095551 source:e:\peraman_final\peraman\pacman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"savegame.h"
+	"screens.h"
+	"resume_game.h"
+	<windows.h>
+
+1532463558 e:\peraman_final\peraman\pacman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 e:\peraman_final\peraman\pacman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1533095129 e:\peraman_final\peraman\pacman\variables.h
+
+1533063045 e:\peraman_final\peraman\pacman\highscores.h
+
+1532461892 e:\peraman_final\peraman\pacman\check_functions.h
+
+1533067997 e:\peraman_final\peraman\pacman\movements.h
+
+1533096765 e:\peraman_final\peraman\pacman\screens.h
+
+1533095551 e:\peraman_final\peraman\pacman\savegame.h
+	<bits/stdc++.h>
+
+1533095652 e:\peraman_final\peraman\pacman\resume_game.h
+	<stdlib.h>
+	<stdio.h>
+
+1533095551 source:c:\users\asus\desktop\peraman_final\peraman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"savegame.h"
+	"screens.h"
+	"resume_game.h"
+	<windows.h>
+
+1532463558 c:\users\asus\desktop\peraman_final\peraman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 c:\users\asus\desktop\peraman_final\peraman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1533095129 c:\users\asus\desktop\peraman_final\peraman\variables.h
+
+1533063045 c:\users\asus\desktop\peraman_final\peraman\highscores.h
+
+1532461892 c:\users\asus\desktop\peraman_final\peraman\check_functions.h
+
+1533067997 c:\users\asus\desktop\peraman_final\peraman\movements.h
+
+1533095551 c:\users\asus\desktop\peraman_final\peraman\savegame.h
+	<bits/stdc++.h>
+
+1533096765 c:\users\asus\desktop\peraman_final\peraman\screens.h
+
+1533095652 c:\users\asus\desktop\peraman_final\peraman\resume_game.h
+	<stdlib.h>
+	<stdio.h>
+
+1533095551 source:f:\l1-t1\cse 101\igraphics\peraman_final\peraman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"savegame.h"
+	"screens.h"
+	"resume_game.h"
+	<windows.h>
+
+1532463558 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1533095129 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\variables.h
+
+1533063045 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\highscores.h
+
+1532461892 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\check_functions.h
+
+1533067997 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\movements.h
+
+1533095551 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\savegame.h
+	<bits/stdc++.h>
+
+1533096765 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\screens.h
+
+1533095652 f:\l1-t1\cse 101\igraphics\peraman_final\peraman\resume_game.h
+	<stdlib.h>
+	<stdio.h>
+
+1533095551 source:f:\l1-t1\cse 101\peraman_final\peraman\picturedemotransperancy.cpp
+	"mazedraw.h"
+	"variables.h"
+	"highscores.h"
+	"check_functions.h"
+	"movements.h"
+	"savegame.h"
+	"screens.h"
+	"resume_game.h"
+	<windows.h>
+
+1532463558 f:\l1-t1\cse 101\peraman_final\peraman\mazedraw.h
+	<stdio.h>
+	"iGraphics.h"
+
+1493810124 f:\l1-t1\cse 101\peraman_final\peraman\igraphics.h
+	<stdio.h>
+	<stdlib.h>
+	<gl/glut.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<gl\glaux.h>
+
+1533095129 f:\l1-t1\cse 101\peraman_final\peraman\variables.h
+
+1533063045 f:\l1-t1\cse 101\peraman_final\peraman\highscores.h
+
+1532461892 f:\l1-t1\cse 101\peraman_final\peraman\check_functions.h
+
+1533067997 f:\l1-t1\cse 101\peraman_final\peraman\movements.h
+
+1533095551 f:\l1-t1\cse 101\peraman_final\peraman\savegame.h
+	<bits/stdc++.h>
+
+1533096765 f:\l1-t1\cse 101\peraman_final\peraman\screens.h
+
+1533095652 f:\l1-t1\cse 101\peraman_final\peraman\resume_game.h
+	<stdlib.h>
+	<stdio.h>
+
