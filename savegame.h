@@ -69,13 +69,13 @@ void save_game()
     fprintf(saved,"%d %d %d %d %d %d\n",day,month,year,hour,minute,second);
     fprintf(saved,"%d %d %d %d %d %d ",mode,last,dir[0],dir[1],dir[2],dir[3]);
     fprintf(saved,"%d\n",level);
-    fprintf(saved,"%d\n",lifes);
+    fprintf(saved,"%d\n",lives);
     fprintf(saved,"%d\n",dots_eaten);
     fprintf(saved,"%d\n",score);
-    fprintf(saved,"%d\n",firstfruit);
-    fprintf(saved,"%d\n",secondfruit);
-    fprintf(saved,"%d\n%d\n%d\n%d\n",energizer_ase[energizer[0][0]][energizer[0][1]],energizer_ase[energizer[1][0]][energizer[1][1]],
-            energizer_ase[energizer[2][0]][energizer[2][1]],energizer_ase[energizer[3][0]][energizer[3][1]]);
+    fprintf(saved,"%d\n",first_fruit);
+    fprintf(saved,"%d\n",second_fruit);
+    fprintf(saved,"%d\n%d\n%d\n%d\n",has_energizer[energizer[0][0]][energizer[0][1]],has_energizer[energizer[1][0]][energizer[1][1]],
+            has_energizer[energizer[2][0]][energizer[2][1]],has_energizer[energizer[3][0]][energizer[3][1]]);
     fprintf(saved,"%d\n",changed);
     fprintf(saved,"%d\n",scattered_steps);
     fprintf(saved,"%d\n",chase_steps);
@@ -97,7 +97,7 @@ void save_game()
 
     fprintf(saved,"\n");
     fprintf(saved,"%d %d\n",pacman[0],pacman[1]);
-    fprintf(saved,"%d %d\n",pacmanlast[0],pacmanlast[1]);
+    fprintf(saved,"%d %d\n",pacman_last[0],pacman_last[1]);
     fprintf(saved,"%d %d %d %d %d %d %d %d\n",ghost[0][0],ghost[0][1],ghost[1][0],ghost[1][1],ghost[2][0],ghost[2][1],
                                       ghost[3][0],ghost[3][1]);
     fprintf(saved,"%d %d %d %d %d %d %d %d\n",ghost_last[0][0],ghost_last[0][1],ghost_last[1][0],ghost_last[1][1],

@@ -1,16 +1,18 @@
 #include "mazedraw.h"
 #include "variables.h"
-#include "highscores.h"
+#include "high_scores.h"
 #include "check_functions.h"
 #include "movements.h"
 #include "savegame.h"
 #include "screens.h"
 #include "resume_game.h"
 #include<windows.h>
+
 void points_energizers();
 void initialize_everything();
 void level_up_func();
 void compare();
+
 void iDraw()
 {
     iClear();
@@ -24,33 +26,28 @@ void iDraw()
     }
      else if(instruction==1)
     {
-        iShowBMP(0,0,"instructions.bmp");
+        iShowBMP(0,0,"Images/instructions.bmp");
     }
-    else if(nosavedgame==1)
+    else if(no_saved_game==1)
     {
         no_saved_game();
     }
      else if(resume==1)
     {
-        iShowBMP(0,0,"background.bmp");
+        iShowBMP(0,0,"Images/background.bmp");
         resume_game_func();
-        //if(nosavedgame==0)
-          //  drawmaze();
-
     }
-    else if(game_shesh==1)
+    else if(game_ended==1)
     {
-        game_shesh_func();
+        game_ended_func();
     }
     else if(start==1)
     {
         start_func();
     }
-
-
     else if(getting_name==1)
     {
-        iShowBMP(0,0,"background.bmp");
+        iShowBMP(0,0,"Images/background.bmp");
         iSetColor( 171, 235, 198);
         iText(7*20,25*20,"ENTER YOUR NAME:",GLUT_BITMAP_TIMES_ROMAN_24);
         iRectangle(8*20,20*20,10*20,3*20);
@@ -59,58 +56,59 @@ void iDraw()
     }
     else if(level_up==1)
     {
-
-        iShowBMP(0,0,"background.bmp");
+        iShowBMP(0,0,"Images/background.bmp");
         level_up_func();
     }
     else if(game_over==1)
     {
-        iShowBMP(0,0,"background.bmp");
+        iShowBMP(0,0,"Images/background.bmp");
         game_over_func();
     }
 
-    else if(life_komse==1)
+    else if(life_lost==1)
     {
-        iShowBMP(0,0,"background.bmp");
-        life_komse_func();
+        iShowBMP(0,0,"Images/background.bmp");
+        life_lost_func();
     }
 
-    else{
-    int i,j;
+    else
+    {
+        int i,j;
 
-    drawmaze();
+        drawmaze();
 
-    points_energizers();
-    iSetColor( 241, 196, 15 );
+        points_energizers();
+        iSetColor( 241, 196, 15 );
 
-    iShowBMP(pacman[0]-15,pacman[1]-15,"peraman.bmp");
+        iShowBMP(pacman[0]-15,pacman[1]-15,"Images/pacman.bmp");
 
-    if(frightened==0){
-    iShowBMP(ghost[0][0]-15,ghost[0][1]-10,"red ghost.bmp");
-    iShowBMP(ghost[1][0]-15,ghost[1][1]-10,"pink ghost.bmp");
-    iShowBMP(ghost[2][0]-15,ghost[2][1]-10,"blue ghost.bmp");
-    iShowBMP(ghost[3][0]-15,ghost[3][1]-10,"yellow ghost.bmp");
-    }
-    else{
-        for(i=0;i<4;i++)
+        if(frightened==0)
         {
-            iShowBMP(ghost[i][0]-20,ghost[i][1]-20,"frightenedghost.bmp");
+            iShowBMP(ghost[0][0]-15,ghost[0][1]-10,"Images/red_ghost.bmp");
+            iShowBMP(ghost[1][0]-15,ghost[1][1]-10,"Images/pink_ghost.bmp");
+            iShowBMP(ghost[2][0]-15,ghost[2][1]-10,"Images/blue_ghost.bmp");
+            iShowBMP(ghost[3][0]-15,ghost[3][1]-10,"Images/yellow_ghost.bmp");
         }
-    }
+        else{
+            for(i=0;i<4;i++)
+            {
+                iShowBMP(ghost[i][0]-20,ghost[i][1]-20,"Images/frightened_ghost.bmp");
+            }
+        }
         if(dots_eaten==70)
         {
-            firstfruit=1;
+            first_fruit=1;
         }
         if(dots_eaten==170)
         {
-            secondfruit=1;
+            second_fruit=1;
         }
-        scoretemp=score;
+        score_temp=score;
         j=1000;
         for(i=0;i<=3;i++)
         {
-            scorestring[i]=scoretemp/j+'0';
-            scoretemp%=j;
+            scorestring[i]=score_temp/j+'0';
+            score_temp%=j;
             j/=10;
         }
         iSetColor(255,255,255);
@@ -120,14 +118,12 @@ void iDraw()
         iText(10*20,34*20,"LEVEL:",GLUT_BITMAP_TIMES_ROMAN_24);
         iText(14*20,34*20,levelchar,GLUT_BITMAP_TIMES_ROMAN_24);
         iText(2*20,34*20,"LIVES:",GLUT_BITMAP_TIMES_ROMAN_24);
-        lifes_string[0]=lifes+'0';
-        iText(6*20,34*20,lifes_string,GLUT_BITMAP_TIMES_ROMAN_24);
+        lives_string[0]=lives+'0';
+        iText(6*20,34*20,lives_string,GLUT_BITMAP_TIMES_ROMAN_24);
         iSetColor(255,153,51);
         iText(20*20,2*20-5,"press p to pause the game", GLUT_BITMAP_HELVETICA_12);
         check_position();
-
     }
-
 }
 
 void iMouse(int button,int state,int mx,int my )
@@ -150,7 +146,7 @@ void iMouse(int button,int state,int mx,int my )
             exit(0);
         }
     }
-    else if(game_shesh==1)
+    else if(game_ended==1)
     {
         if(mx>=6*20&&mx<=20*20&&my>=18*20&&my<=21*20)
         {
@@ -191,7 +187,7 @@ void iMouse(int button,int state,int mx,int my )
         if(mx>=8*20&&mx<=20*20&&my>=15*20&&my<=18*20)
         {
             game_over=0;
-            life_komse=0;
+            life_lost=0;
             initialize_everything();
         }
         else if(mx>=8*20&&mx<=20*20&&my>=10*20&&my<=13*20)
@@ -203,9 +199,7 @@ void iMouse(int button,int state,int mx,int my )
             initialize_everything();
             exit(0);
         }
-
     }
-
 }
 void iMouseMove(int mx,int my)
 {
@@ -263,7 +257,7 @@ void iKeyboard(unsigned char key)
         {
 
             game_over=0;
-            life_komse=0;
+            life_lost=0;
             initialize_everything();
         }
         else if(pointer_center[1][1]==11.5*20)
@@ -278,7 +272,7 @@ void iKeyboard(unsigned char key)
 
         }
     }
-    else if(game_shesh==1)
+    else if(game_ended==1)
     {
         if(key=='\r')
         {
@@ -382,10 +376,10 @@ void iKeyboard(unsigned char key)
         if(key=='\r')
             level_up=0;
     }
-    if(life_komse==1)
+    if(life_lost==1)
     {
         if(key=='\r')
-            life_komse=0;
+            life_lost=0;
     }
     if(getting_name==0)
     {
@@ -393,19 +387,19 @@ void iKeyboard(unsigned char key)
 
         {
             paused_game=1;
-           // exit(0);
         }
     }
-    if(nosavedgame==1)
+    if(no_saved_game==1)
     {
         if(key=='\r')
         {
             resume=0;
             start=1;
-            nosavedgame=0;
+            no_saved_game=0;
         }
     }
 }
+
 void iSpecialKeyboard(unsigned char key)
 {
     if(start==1)
@@ -430,7 +424,7 @@ void iSpecialKeyboard(unsigned char key)
             pointer_center[1][1]+=5*20;
         }
     }
-    else if(game_shesh==1)
+    else if(game_ended==1)
     {
         if(key==GLUT_KEY_DOWN&&pointer_center[2][1]!=14.5*20)
         {
@@ -464,7 +458,7 @@ void iSpecialKeyboard(unsigned char key)
         }
     }
 
-    if(life_komse==1)
+    if(life_lost==1)
     {
         if(key==GLUT_KEY_END)
         {
@@ -472,15 +466,13 @@ void iSpecialKeyboard(unsigned char key)
             exit(0);
         }
     }
-
-
     if(key==GLUT_KEY_DOWN)
     {
 
         if(blocked[pacman[0]][pacman[1]-20]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[1]=pacman[1]-20;
 
         }
@@ -503,8 +495,8 @@ void iSpecialKeyboard(unsigned char key)
 
         if(blocked[pacman[0]][pacman[1]+20]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[1]=pacman[1]+20;
         }
              if(frightened==1)
@@ -519,16 +511,13 @@ void iSpecialKeyboard(unsigned char key)
             {
                 chase_steps++;
             }
-
-
     }
     else if(key==GLUT_KEY_LEFT)
     {
-
         if(blocked[pacman[0]-20][pacman[1]]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[0]=pacman[0]-20;}
              if(frightened==1)
             {
@@ -542,15 +531,13 @@ void iSpecialKeyboard(unsigned char key)
             {
                 chase_steps++;
             }
-
     }
     else if(key==GLUT_KEY_RIGHT)
     {
-
         if(blocked[pacman[0]+20][pacman[1]]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[0]=pacman[0]+20;
         }
              if(frightened==1)
@@ -565,7 +552,6 @@ void iSpecialKeyboard(unsigned char key)
             {
                 chase_steps++;
             }
-
     }
     if(points[pacman[0]][pacman[1]]==1)
     {
@@ -573,21 +559,21 @@ void iSpecialKeyboard(unsigned char key)
         dots_eaten++;
         points[pacman[0]][pacman[1]]=0;
     }
-    if(firstfruit==1&&pacman[0]==fruit[0][0]&&pacman[1]==fruit[0][1])
-        {
-            firstfruit=0;
-            score+=30;
-        }
-    else if(secondfruit==1&&pacman[0]==fruit[1][0]&&pacman[1]==fruit[1][1])
-        {
-            secondfruit=0;
-            score+=30;
-        }
-    if(energizer_ase[pacman[0]][pacman[1]]==1)
+    if(first_fruit==1&&pacman[0]==fruit[0][0]&&pacman[1]==fruit[0][1])
+    {
+        first_fruit=0;
+        score+=30;
+    }
+    else if(second_fruit==1&&pacman[0]==fruit[1][0]&&pacman[1]==fruit[1][1])
+    {
+        second_fruit=0;
+        score+=30;
+    }
+    if(has_energizer[pacman[0]][pacman[1]]==1)
     {
         score+=20;
         int xx[4],yy[4];
-        energizer_ase[pacman[0]][pacman[1]]=0;
+        has_energizer[pacman[0]][pacman[1]]=0;
         frightened=1;
         for(int i=0;i<4;i++)
         {
@@ -614,7 +600,6 @@ void iSpecialKeyboard(unsigned char key)
         mode=3;
         frightened_steps=0;
     }
-
     if(frightened_steps==frightened_steps_total[level]&&frightened==1)
     {
         frightened=0;
@@ -654,11 +639,9 @@ void iSpecialKeyboard(unsigned char key)
         if(level==2)
         {
             update_highscore();
-            game_shesh=1;
+            game_ended=1;
         }
-
     }
-
 }
 
 void level_up_func()
@@ -668,46 +651,43 @@ void level_up_func()
     iText(8*20+10,20*20,"L  E  V  E  L  U  P  !  !",GLUT_BITMAP_TIMES_ROMAN_24);
     iSetColor(133, 193, 233 );
     iText(6*20,15*20,"PRESS ENTER TO CONTINUE",GLUT_BITMAP_TIMES_ROMAN_24);
-
 }
-
 
 void initialize_everything()
 {
     int i,j;
     for(i=0;i<4;i++)
     {
-        ghost[i][0]=ghostinitial[i][0];
-        ghost[i][1]=ghostinitial[i][1];
+        ghost[i][0]=ghost_initial[i][0];
+        ghost[i][1]=ghost_initial[i][1];
     }
-    pacman[0]=pacmaninitial[0];
-    pacman[1]=pacmaninitial[1];
-    drawpoints();
+    pacman[0]=pacman_initial[0];
+    pacman[1]=pacman_initial[1];
+    draw_points();
     dots_eaten=0;
     if(level_up!=1)
         score=0;
     scattered=1;
     chase=0;
-    firstfruit=0;
-    secondfruit=0;
+    first_fruit=0;
+    second_fruit=0;
     frightened=0;
     if(level_up!=1)
-        lifes=3;
+        lives=3;
     changed=0;
     scattered_steps=0;
     chase_steps=0;
     frightened_steps=0;
-    pacmanlast[0]=pacman[0];
-    pacmanlast[1]=pacman[1];
+    pacman_last[0]=pacman[0];
+    pacman_last[1]=pacman[1];
     mode='s';
     last='s';
     paused_game=0;
     getting_name=0;
-    game_shesh=0;
-    life_komse=0;
+    game_ended=0;
+    life_lost=0;
     game_over=0;
     resume=0;
-
 }
 
 void points_energizers()
@@ -726,30 +706,25 @@ void points_energizers()
     iSetColor(240,240,240);
     for(i=0;i<4;i++)
     {
-        if(energizer_ase[energizer[i][0]][energizer[i][1]]==1)
+        if(has_energizer[energizer[i][0]][energizer[i][1]]==1)
         iFilledCircle(energizer[i][0],energizer[i][1],10);
     }
-    if(firstfruit==1)
+    if(first_fruit==1)
     {
-          iShowBMP(fruit[0][0]-20,fruit[0][1]-20,"fruits.bmp");
+          iShowBMP(fruit[0][0]-20,fruit[0][1]-20,"Images/fruits.bmp");
     }
-    else if(secondfruit==1)
+    else if(second_fruit==1)
     {
-          iShowBMP(fruit[1][0]-20,fruit[1][1]-20,"grape.bmp");
+          iShowBMP(fruit[1][0]-20,fruit[1][1]-20,"Images/grape.bmp");
     }
-
-
 }
-
-
-
 
 int main()
 {
 
-    PlaySound(TEXT("gamemusic.wav"),NULL,SND_LOOP|SND_ASYNC);
-    drawpoints();
-    //drawpoints is in variables.h
+    PlaySound(TEXT("Audios/game_music.wav"),NULL,SND_LOOP|SND_ASYNC);
+    draw_points();
+    //draw_points is in variables.h
     iSetTimer(300,ghost_movement);
     iInitialize(560,720,"maze");
     iDraw();

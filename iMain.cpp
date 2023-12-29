@@ -5,7 +5,7 @@ void points_energizers();
 void check_position();
 void initialize_everything();
 void game_over_func();
-void life_komse_func();
+void life_lost_func();
 void start_func();
 void iDraw()
 {
@@ -19,52 +19,40 @@ void iDraw()
         game_over_func();
     }
 
-    else if(life_komse==1)
+    else if(life_lost==1)
     {
-        life_komse_func();
+        life_lost_func();
     }
-    else{
-    int i,j;
-    //Show grid:
-//    iSetColor(0,120,0);
-//
-//    for(i=0;i<800;i+=20)
-//    {
-//        iLine(0,i,800,i);
-//    }
-//    for(i=0;i<800;i+=20)
-//    {
-//        iLine(i,0,i,800);
-//
-//    }
-    drawmaze();
-    points_energizers();
-    iSetColor( 241, 196, 15 );
-//    iFilledCircle(pacman[0],pacman[1],12.5);
-    iShowBMP(pacman[0]-15,pacman[1]-15,"pacman.bmp");
-//    for(i=0;i<4;i++){
-//    iSetColor(ghost_color[i][0],ghost_color[i][1],ghost_color[i][2]);
-//    iFilledCircle(ghost[i][0],ghost[i][1],12.5);
-//    }
-    if(frightened==0){
-    iShowBMP(ghost[0][0]-15,ghost[0][1]-10,"red ghost.bmp");
-    iShowBMP(ghost[1][0]-15,ghost[1][1]-10,"pink ghost.bmp");
-    iShowBMP(ghost[2][0]-15,ghost[2][1]-10,"blue ghost.bmp");
-    iShowBMP(ghost[3][0]-15,ghost[3][1]-10,"yellow ghost.bmp");
-    }
-    else{
-        for(i=0;i<4;i++)
+    else
+    {
+        int i,j;
+        
+        drawmaze();
+        points_energizers();
+        iSetColor( 241, 196, 15 );
+        iShowBMP(pacman[0]-15,pacman[1]-15,"Images/pacman.bmp");
+
+        if(frightened==0)
         {
-            iShowBMP(ghost[i][0]-20,ghost[i][1]-20,"frightenedghost.bmp");
+            iShowBMP(ghost[0][0]-15,ghost[0][1]-10,"Images/red_ghost.bmp");
+            iShowBMP(ghost[1][0]-15,ghost[1][1]-10,"Images/pink_ghost.bmp");
+            iShowBMP(ghost[2][0]-15,ghost[2][1]-10,"Images/blue_ghost.bmp");
+            iShowBMP(ghost[3][0]-15,ghost[3][1]-10,"Images/yellow_ghost.bmp");
         }
-    }
+        else
+        {
+            for(i=0;i<4;i++)
+            {
+                iShowBMP(ghost[i][0]-20,ghost[i][1]-20,"Images/frightened_ghost.bmp");
+            }
+        }
         if(dots_eaten==70)
         {
-            firstfruit=1;
+            first_fruit=1;
         }
         if(dots_eaten==170)
         {
-            secondfruit=1;
+            second_fruit=1;
         }
         if(frightened==1)
         {
@@ -77,24 +65,22 @@ void iDraw()
         else if(scattered==1&&frightened==0){
             iText(270,400,"scattered");
         }
-
-        scoretemp=score;
+        score_temp=score;
         j=1000;
         for(i=0;i<=3;i++)
         {
-            scorestring[i]=scoretemp/j+'0';
-            scoretemp%=j;
+            scorestring[i]=score_temp/j+'0';
+            score_temp%=j;
             j/=10;
         }
         iSetColor(255,255,255);
         iText(17*20,34*20,"SCORE: ",GLUT_BITMAP_TIMES_ROMAN_24);
         iText(22*20,34*20,scorestring,GLUT_BITMAP_TIMES_ROMAN_24);
         iText(2*20,34*20,"LIVES:",GLUT_BITMAP_TIMES_ROMAN_24);
-        lifes_string[0]=lifes+'0';
-        iText(6*20,34*20,lifes_string,GLUT_BITMAP_TIMES_ROMAN_24);
+        lives_string[0]=lives+'0';
+        iText(6*20,34*20,lives_string,GLUT_BITMAP_TIMES_ROMAN_24);
         check_position();
     }
-
 }
 
 void iMouse(int button,int state,int mx,int my )
@@ -123,7 +109,7 @@ void iMouse(int button,int state,int mx,int my )
         if(mx>=8*20&&mx<=20*20&&my>=20*20&&my<=23*20)
         {
             game_over=0;
-            life_komse=0;
+            life_lost=0;
             initialize_everything();
         }
         else if(mx>=8*20&&mx<=20*20&&my>=15*20&&my<=18*20)
@@ -135,7 +121,6 @@ void iMouse(int button,int state,int mx,int my )
             initialize_everything();
             exit(0);
         }
-
     }
 
 }
@@ -145,30 +130,27 @@ void iMouseMove(int mx,int my)
 }
 void iKeyboard(unsigned char key)
 {
-    if(life_komse==1)
+    if(life_lost==1)
     {
         if(key=='\r')
-            life_komse=0;
+            life_lost=0;
     }
 
 }
 void iSpecialKeyboard(unsigned char key)
 {
-    if(life_komse==1)
+    if(life_lost==1)
     {
         if(key==GLUT_KEY_END)
             exit(0);
     }
 
-
-
     if(key==GLUT_KEY_DOWN)
     {
-
         if(blocked[pacman[0]][pacman[1]-20]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[1]=pacman[1]-20;
 
         }
@@ -190,8 +172,8 @@ void iSpecialKeyboard(unsigned char key)
 
         if(blocked[pacman[0]][pacman[1]+20]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[1]=pacman[1]+20;
         }
             if(mode=='s')
@@ -206,15 +188,13 @@ void iSpecialKeyboard(unsigned char key)
             {
                 frightened_steps++;
             }
-
     }
     else if(key==GLUT_KEY_LEFT)
     {
-
         if(blocked[pacman[0]-20][pacman[1]]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[0]=pacman[0]-20;}
             if(mode=='s')
             {
@@ -228,15 +208,14 @@ void iSpecialKeyboard(unsigned char key)
             {
                 frightened_steps++;
             }
-
     }
     else if(key==GLUT_KEY_RIGHT)
     {
 
         if(blocked[pacman[0]+20][pacman[1]]==0)
         {
-            pacmanlast[0]=pacman[0];
-            pacmanlast[1]=pacman[1];
+            pacman_last[0]=pacman[0];
+            pacman_last[1]=pacman[1];
             pacman[0]=pacman[0]+20;
         }
             if(mode=='s')
@@ -251,7 +230,6 @@ void iSpecialKeyboard(unsigned char key)
             {
                 frightened_steps++;
             }
-
     }
     if(points[pacman[0]][pacman[1]]==1)
     {
@@ -260,20 +238,20 @@ void iSpecialKeyboard(unsigned char key)
         points[pacman[0]][pacman[1]]=0;
     }
     if(pacman[0]==fruit[0][0]&&pacman[1]==fruit[0][1])
-        {
-            firstfruit=0;
-            score+=30;
-        }
+    {
+        first_fruit=0;
+        score+=30;
+    }
     else if(pacman[0]==fruit[1][0]&&pacman[1]==fruit[1][1])
-        {
-            secondfruit=0;
-            score+=30;
-        }
-    if(energizer_ase[pacman[0]][pacman[1]]==1)
+    {
+        second_fruit=0;
+        score+=30;
+    }
+    if(has_energizer[pacman[0]][pacman[1]]==1)
     {
         score+=20;
         int xx[4],yy[4];
-        energizer_ase[pacman[0]][pacman[1]]=0;
+        has_energizer[pacman[0]][pacman[1]]=0;
         frightened=1;
         for(int i=0;i<4;i++)
         {
@@ -331,18 +309,12 @@ void iSpecialKeyboard(unsigned char key)
         chase=0;
         scattered_steps=0;}
     }
-
-
-
-
-
-
-
 }
+
 void start_func()
 {
 
-      iShowBMP(0,0,"menubar.bmp");
+      iShowBMP(0,0,"Images/menubar.bmp");
       iSetColor(198,198,221);
       iRectangle(12*20,15*20+10,15*20,4*20);
       iRectangle(12*20,20*20,15*20,4*20);
@@ -350,7 +322,8 @@ void start_func()
       iRectangle(3*20,4*20,11*20,4*20);
 
 }
-void life_komse_func()
+
+void life_lost_func()
 {
         iSetColor(241, 196, 15 );
         iText(10*20,24*20,"You just lost one life",GLUT_BITMAP_HELVETICA_18);
@@ -358,6 +331,7 @@ void life_komse_func()
         iText(11*20,20*20,"and end to exit",GLUT_BITMAP_HELVETICA_18);
 
 }
+
 void game_over_func()
 {
         iSetColor(255,255,255);
@@ -370,32 +344,34 @@ void game_over_func()
         iRectangle(8*20,10*20,12*20,3*20);
         iText(12*20,11*20," Q U I T",GLUT_BITMAP_TIMES_ROMAN_24);
 }
+
 void initialize_everything()
 {
     int i,j;
     for(i=0;i<4;i++)
     {
-        ghost[i][0]=ghostinitial[i][0];
-        ghost[i][1]=ghostinitial[i][1];
+        ghost[i][0]=ghost_initial[i][0];
+        ghost[i][1]=ghost_initial[i][1];
     }
-    pacman[0]=pacmaninitial[0];
-    pacman[1]=pacmaninitial[1];
-    drawpoints();
+    pacman[0]=pacman_initial[0];
+    pacman[1]=pacman_initial[1];
+    draw_points();
     dots_eaten=0;
     score=0;
     scattered=1;
     chase=0;
     frightened=0;
-    lifes=3;
+    lives=3;
     changed=0;
     scattered_steps=0;
     chase_steps=0;
     frightened_steps=0;
-    pacmanlast[0]=pacman[0];
-    pacmanlast[1]=pacman[1];
+    pacman_last[0]=pacman[0];
+    pacman_last[1]=pacman[1];
     mode='s';
     last='s';
 }
+
 void check_position()
 {
     int i,j;
@@ -406,22 +382,22 @@ void check_position()
             if(frightened==1)
             {
                 score+=50;
-                ghost[i][0]=ghostinitial[i][0];
-                ghost[i][1]=ghostinitial[i][1];
+                ghost[i][0]=ghost_initial[i][0];
+                ghost[i][1]=ghost_initial[i][1];
             }
             else
             {
-                lifes--;
-                if(lifes==0)
+                lives--;
+                if(lives==0)
                     game_over=1;
-                pacman[0]=pacmaninitial[0];
-                pacman[1]=pacmaninitial[1];
+                pacman[0]=pacman_initial[0];
+                pacman[1]=pacman_initial[1];
                 for(j=0;j<4;j++)
                 {
-                    ghost[j][0]=ghostinitial[j][0];
-                    ghost[j][1]=ghostinitial[j][1];
+                    ghost[j][0]=ghost_initial[j][0];
+                    ghost[j][1]=ghost_initial[j][1];
                 }
-                life_komse=1;
+                life_lost=1;
             }
             break;
         }
@@ -444,20 +420,19 @@ void points_energizers()
     iSetColor(240,240,240);
     for(i=0;i<4;i++)
     {
-        if(energizer_ase[energizer[i][0]][energizer[i][1]]==1)
+        if(has_energizer[energizer[i][0]][energizer[i][1]]==1)
         iFilledCircle(energizer[i][0],energizer[i][1],10);
     }
-    if(firstfruit==1)
+    if(first_fruit==1)
     {
-          iShowBMP(fruit[0][0]-20,fruit[0][1]-20,"fruits.bmp");
+          iShowBMP(fruit[0][0]-20,fruit[0][1]-20,"Images/fruits.bmp");
     }
-    else if(secondfruit==1)
+    else if(second_fruit==1)
     {
-          iShowBMP(fruit[1][0]-20,fruit[1][1]-20,"fruits.bmp");
+          iShowBMP(fruit[1][0]-20,fruit[1][1]-20,"Images/fruits.bmp");
     }
-
-
 }
+
 void move_ghost()
 {
     int i,j,u,d,r,l,mini,dx,dy;
@@ -540,31 +515,28 @@ void move_ghost()
             ghost_last[i][1]=ghost[i][1];
             ghost[i][0]+=dx;
             ghost[i][1]+=dy;
-
-
         }
     }
-
-
-
 }
+
 void ghost_movement()
 {
-    if(life_komse==1||start==1) return ;
+    if(life_lost==1||start==1) return ;
     t++;
     int i,j,k,x1,x2,y1,y2;
     if(frightened==0)
     {
         if(scattered==1)
-        { iSetColor(0,255,0);
-    for(i=0;i<=28;i++)
-    {
-        iLine(20*i,0,20*i,720);
-    }
-    for(i=0;i<=36;i++)
-    {
-        iLine(0,20*i,560,20*i);
-    }
+        { 
+            iSetColor(0,255,0);
+            for(i=0;i<=28;i++)
+            {
+                iLine(20*i,0,20*i,720);
+            }
+            for(i=0;i<=36;i++)
+            {
+                iLine(0,20*i,560,20*i);
+            }
             for(i=0;i<4;i++)
             {
                 target[i][0]=scattered_target[i][0];
@@ -575,9 +547,9 @@ void ghost_movement()
 
             target[0][0]=pacman[0];
             target[0][1]=pacman[1];
-            x1=pacmanlast[0];
+            x1=pacman_last[0];
             x2=pacman[0];
-            y1=pacmanlast[1];
+            y1=pacman_last[1];
             y2=pacman[1];
             target[1][0]=x2+2*(x2-x1);
             target[1][1]=y2+2*(y2-y1);
@@ -603,13 +575,12 @@ void ghost_movement()
             }
         }
     }
-     move_ghost();
+    move_ghost();
 }
 
 int main()
 {
-
-    drawpoints();
+    draw_points();
     iSetTimer(300,ghost_movement);
     iInitialize(560,720,"maze");
     iDraw();

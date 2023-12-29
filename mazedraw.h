@@ -1,12 +1,10 @@
 #include<stdio.h>
 #include "iGraphics.h"
 
-
 int verx[30],very[30],verwidth[30],verlength[30],vern,horx[30],hory[30],horwidth[30],horlength[30],horn;
 int blocked[1000][1000];
 void coordinates();
 void blockedtiles();
-
 
 void drawmaze()
 {
@@ -42,23 +40,14 @@ void drawmaze()
 
         }
     }
-//    iSetColor(0,255,0);
-//    for(i=0;i<=28;i++)
-//    {
-//        iLine(20*i,0,20*i,720);
-//    }
-//    for(i=0;i<=36;i++)
-//    {
-//        iLine(0,20*i,560,20*i);
-//    }
 }
 
 
 void coordinates()
 {
     FILE *ver,*hor;
-    ver=fopen("vertical.txt","r");
-    hor=fopen("horizontal.txt","r");
+    ver=fopen("Maze Coordinates/vertical.txt","r");
+    hor=fopen("Maze Coordinates/horizontal.txt","r");
     vern=14;
     horn=25;
     int i;

@@ -12,10 +12,10 @@ int check_level()
 
     for(i=0;i<4;i++)
     {
-        if(energizer_ase[energizer[i][0]][energizer[i][1]]==1)
+        if(has_energizer[energizer[i][0]][energizer[i][1]]==1)
             return -1;
     }
-    if(firstfruit==1||secondfruit==1)
+    if(first_fruit==1||second_fruit==1)
         return -1;
     return 0;
 }
@@ -30,25 +30,25 @@ void check_position()
             if(frightened==1)
             {
                 score+=50;
-                ghost[i][0]=ghostinitial[i][0];
-                ghost[i][1]=ghostinitial[i][1];
+                ghost[i][0]=ghost_initial[i][0];
+                ghost[i][1]=ghost_initial[i][1];
             }
             else
             {
-                lifes--;
-                if(lifes==0)
+                lives--;
+                if(lives==0)
                 {
                     update_highscore();
                     game_over=1;
                 }
-                pacman[0]=pacmaninitial[0];
-                pacman[1]=pacmaninitial[1];
+                pacman[0]=pacman_initial[0];
+                pacman[1]=pacman_initial[1];
                 for(j=0;j<4;j++)
                 {
-                    ghost[j][0]=ghostinitial[j][0];
-                    ghost[j][1]=ghostinitial[j][1];
+                    ghost[j][0]=ghost_initial[j][0];
+                    ghost[j][1]=ghost_initial[j][1];
                 }
-                life_komse=1;
+                life_lost=1;
             }
             break;
         }

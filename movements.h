@@ -90,7 +90,7 @@ void move_ghost()
 }
 void ghost_movement()
 {
-    if(resume==1||paused_game==1||life_komse==1||start==1||level_up==1||getting_name==1||show_highscore==1)
+    if(resume==1||paused_game==1||life_lost==1||start==1||level_up==1||getting_name==1||show_highscore==1)
         return ;
     t++;
     int i,j,k,x1,x2,y1,y2;
@@ -108,9 +108,9 @@ void ghost_movement()
 
             target[0][0]=pacman[0];
             target[0][1]=pacman[1];
-            x1=pacmanlast[0];
+            x1=pacman_last[0];
             x2=pacman[0];
-            y1=pacmanlast[1];
+            y1=pacman_last[1];
             y2=pacman[1];
             target[1][0]=x2+2*(x2-x1);
             target[1][1]=y2+2*(y2-y1);
