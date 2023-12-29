@@ -1,7 +1,7 @@
-# Pacman
-A replication of the popular game Pacman using iGraphics - a simple graphics library for C language.
-- Developed as part of CSE 102 (Structured Programming Language Sessional) course work.
-- C and C++ is used for designing.
+# Peraman
+Peraman is a replication of the popular game Pacman using iGraphics - a simple graphics library for C language.
+- Developed as part of CSE 102 (Structured Programming Language Sessional) coursework.
+- C and C++ are used for designing.
 - igraphics is used for building the UI.
 
 ## Contributors:
